@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class AppTheme {
@@ -38,10 +37,7 @@ class AppTheme {
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
       fillColor: primaryColor.withOpacity(0.1),
-      contentPadding: const EdgeInsets.symmetric(
-        horizontal: 16,
-        vertical: 8,
-      ),
+      contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(24),
         borderSide: BorderSide.none,
@@ -54,26 +50,18 @@ class AppTheme {
         borderRadius: BorderRadius.circular(24),
         borderSide: const BorderSide(color: primaryColor),
       ),
-      hintStyle: TextStyle(
-        color: Colors.grey[600],
-        fontSize: 14,
-      ),
+      hintStyle: TextStyle(color: Colors.grey[600], fontSize: 14),
     ),
 
     // Message Bubbles
     cardTheme: CardThemeData(
       color: primaryColor.withValues(alpha: 0.1),
       elevation: 0,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
     ),
 
     // Icons
-    iconTheme: const IconThemeData(
-      color: Colors.black87,
-      size: 24,
-    ),
+    iconTheme: const IconThemeData(color: Colors.black87, size: 24),
 
     // Text Themes
     textTheme: const TextTheme(
@@ -82,18 +70,9 @@ class AppTheme {
         fontWeight: FontWeight.w600,
         color: Colors.black,
       ),
-      bodyLarge: TextStyle(
-        fontSize: 16,
-        color: Colors.black87,
-      ),
-      bodyMedium: TextStyle(
-        fontSize: 14,
-        color: Colors.black87,
-      ),
-      labelMedium: TextStyle(
-        fontSize: 12,
-        color: Colors.grey,
-      ),
+      bodyLarge: TextStyle(fontSize: 16, color: Colors.black87),
+      bodyMedium: TextStyle(fontSize: 14, color: Colors.black87),
+      labelMedium: TextStyle(fontSize: 12, color: Colors.grey),
     ),
 
     // Button Theme
@@ -103,13 +82,8 @@ class AppTheme {
         foregroundColor: Colors.black87,
         elevation: 0,
         padding: const EdgeInsets.symmetric(vertical: 16),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
-        textStyle: const TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w600,
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
       ),
     ),
   );

@@ -1,8 +1,14 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flow/config/theme/app_theme.dart';
+import 'package:flow/firebase_options.dart';
 import 'package:flow/presentation/screens/auth/login_screen.dart';
+import 'package:flow/presentation/screens/signup_screen.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
   runApp(const MyApp());
 }
 
