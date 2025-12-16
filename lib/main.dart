@@ -1,14 +1,14 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flow/config/theme/app_theme.dart';
+import 'package:flow/data/services/service_locator.dart';
 import 'package:flow/firebase_options.dart';
 import 'package:flow/presentation/screens/auth/login_screen.dart';
 import 'package:flow/presentation/screens/signup_screen.dart';
+import 'package:flow/router/app_router.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-
+  await setupServiceLocator();
   runApp(const MyApp());
 }
 
@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      navigatorKey: getIt<AppRouter>().navigatorKey,
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: AppTheme.lightTheme,
@@ -26,3 +27,5 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+// get it ---> service locator---> delivery boy
+// bloc and cubit

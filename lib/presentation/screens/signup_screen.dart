@@ -1,5 +1,7 @@
 import 'package:flow/core/common/custom.button.dart';
 import 'package:flow/core/common/custom_text_field.dart';
+import 'package:flow/data/repositories/auth_repository.dart';
+import 'package:flow/data/services/service_locator.dart';
 import 'package:flow/presentation/screens/auth/login_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -93,6 +95,21 @@ class _SignupScreenState extends State<SignupScreen> {
     return null;
   }
 
+  Future<void> handleSignup() async {
+    FocusScope.of(context).unfocus();
+    if (_formKey.currentState?.validate() ?? false) {
+      try {
+        getIt<AuthRepository>().signUp(
+          fullName: nameController.text,
+          username: userNameController.text,
+          email: emailController.text,
+          phoneNumber: phoneController.text,
+          password: passwordController.text,
+        );
+      } catch (e) {}
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -172,13 +189,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   validator: _validatePassword,
                 ),
                 SizedBox(height: 30),
-                CustomButton(
-                  onPressed: () {
-                    FocusScope.of(context).unfocus();
-                    if (_formKey.currentState?.validate() ?? false) {}
-                  },
-                  text: 'Create Account',
-                ),
+                CustomButton(onPressed: () {}, text: 'Create Account'),
                 SizedBox(height: 20),
                 Center(
                   child: RichText(
