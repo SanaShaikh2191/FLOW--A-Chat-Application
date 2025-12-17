@@ -106,7 +106,13 @@ class _SignupScreenState extends State<SignupScreen> {
           phoneNumber: phoneController.text,
           password: passwordController.text,
         );
-      } catch (e) {}
+      } catch (e) {
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text(e.toString())));
+      }
+    } else {
+      print('form validation failed');
     }
   }
 
@@ -189,7 +195,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   validator: _validatePassword,
                 ),
                 SizedBox(height: 30),
-                CustomButton(onPressed: () {}, text: 'Create Account'),
+                CustomButton(onPressed: handleSignup, text: 'Create Account'),
                 SizedBox(height: 20),
                 Center(
                   child: RichText(

@@ -30,7 +30,7 @@ class AuthRepository extends BaseRepository {
         username: username,
         fullName: fullName,
         email: email,
-        phoneNumber: phoneNumber,
+        phoneNumber: formattedPhoneNumber,
       );
 
       await saveUserData(user);
